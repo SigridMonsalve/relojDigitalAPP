@@ -7,35 +7,53 @@ section{
 	width:100vw;
 	height:100vh;
 }
+#tiempo{
+	font-size:80px;
+	font-weight:bold;
+	color:rgba(255,255,255,0.8);;
+	text-align:center;
+}
 #foot{
 	position:fixed;
 	bottom:0px;
 }
-button{
+#displayOver{
+	position:absolute;
+	background:rgba(255,255,255,0.8);;
+	visibility:hidden;
+	z-index: 100;
+	left:0;
+	top:0;
+}
+button.glyphicon-globe{
 	font-size:50px!important;
 	width:70px;
 	height:70px;
 	margin:0 auto!important;
 	border-radius:100%;
 	padding:5px;
-	background:#BCBEA2;
 	top:80vh!important;
 
 }
+.glyphicon-remove{
+	float:right;
+	background: none!important;
+	margin:10px;
+	font-size:20px!important;
+}
 .glyphicon {
 	display:block!important;
-	background: rgba(255,255,255,0.9);
+	background: rgba(255,255,255,0.5);
 	color:#023D02;
-	-webkit-transition: -webkit-transform ease-out 0.1s, background 0.2s;
-	-moz-transition: -moz-transform ease-out 0.1s, background 0.2s;
-	transition: transform ease-out 0.1s, background 0.2s;
+	-webkit-transition: -webkit-transform ease-out 0.5s, background 0.2s;/*Efecto en el borde*/
+	-moz-transition: -moz-transform ease-out 0.5s, background 0.2s;
+	transition: transform ease-out 0.5s, background 0.2s;
 }
 .glyphicon:after {
 	top: 0;
 	left: 0;
 	padding: 0;
 	z-index: -1;
-	box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
 	opacity: 0;
 	-webkit-transform: scale(0.9);
 	-moz-transform: scale(0.9);
@@ -61,10 +79,10 @@ button{
 	}
 	40% {
 		opacity: 0.5;
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #023D02, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 5px 5px #023D02, 0 0 0 5px rgba(255,255,255,0.5);
 	}
 	100% {
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #023D02, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 5px 5px #023D02, 0 0 0 5px rgba(255,255,255,0.5);
 		-webkit-transform: scale(1.5);
 		opacity: 0;
 	}
@@ -75,10 +93,10 @@ button{
 	}
 	40% {
 		opacity: 0.5;
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #023D02, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 5px 5px #023D02, 0 0 0 5px rgba(255,255,255,0.5);
 	}
 	100% {
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #023D02, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 5px 5px #023D02, 0 0 0 5px rgba(255,255,255,0.5);
 		-moz-transform: scale(1.5);
 		opacity: 0;
 	}
@@ -89,10 +107,10 @@ button{
 	}
 	40% {
 		opacity: 0.5;
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #023D02, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 5px 5px #023D02, 0 0 0 5px rgba(255,255,255,0.5);
 	}
 	100% {
-		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 10px 10px #023D02, 0 0 0 10px rgba(255,255,255,0.5);
+		box-shadow: 0 0 0 2px rgba(255,255,255,0.1), 0 0 5px 5px #023D02, 0 0 0 5px rgba(255,255,255,0.5);
 		transform: scale(1.5);
 		opacity: 0;
 	}
