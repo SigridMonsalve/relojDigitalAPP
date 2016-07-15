@@ -8,39 +8,85 @@
 	</head>
 	<body>
 		<section id='main'>
-			<p id="tiempo"></p>
+			<p id='tiempo'></p>
 			<p id="fecha"></p>
-
+			<div id="extraCiudades">
+				
+			</div>
 		</section>
 		<section id="foot">
 			<button onclick='visualizar()' class="glyphicon glyphicon-globe"> </button>
 		</section>
 		<section id="displayOver">
 			<span class="glyphicon glyphicon-remove" onclick="esconder()"> </span>
+			<ul>
+				<li><input type="checkbox"> Belgrado</li>
+				<li><input type="checkbox"> Reykjavik</li>
+				<li><input type="checkbox"> Dublín</li>
+				<li><input type="checkbox"> Ittooqortoormiit</li>
+				<li><input type="checkbox"> Zurich</li>
+				<li><input type="checkbox"> Sucre</li>
+				<li><input type="checkbox"> México DF.</li>
+				<li><input type="checkbox"> Lima</li>
+				<li><input type="checkbox"> Caracas</li>
+				<li><input type="checkbox"> Tokio</li>
+			</ul>
 		</section>
 		<script src="js/main.js"></script>
 		<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 		<script>
 			$(document).ready(function(){
-				function horaActual() {
+				var pTiempo=document.getElementById('tiempo');
+				function horaActual(cityOffset,contenedor) {
 					var date=new Date($.now());
-					var hora=date.getHours();
+					var hora=Number(date.getHours());
 					var minuto=date.getMinutes();
+					var plusCiudad=Number(cityOffset);
+					plusCiudad+=hora;
+					if (plusCiudad>=24){
+						plusCiudad-=24;
+					}
+					else{
+						plusCiudad=plusCiudad;
+					}
 					minuto=agregarCero(minuto);
-					document.getElementById('tiempo').innerHTML=hora + ":" + minuto;
-					setTimeout(horaActual,500);
+					contenedor.innerHTML=Number(plusCiudad)+ ":" + minuto;
+					fechaActual();
+					setTimeout(horaActual,1000,cityOffset,contenedor);
 				}
+				$(pTiempo).ready(function(){
+					horaActual(0,pTiempo);
+				});
 				function agregarCero(i) {
 				    if (i < 10) {
 				    i = "0" + i;//Agrega un cero a números menores que 10
 				    }
 				    return i;
 				}
-				horaActual();
-				function visualizar(){
-					document.getElementById('displayOver').setAttribute('style',"visibility:visible;")
-				}	
-			});
+        		$('input').click(function(){//Cuando el checkbox es clickeado
+        		var nCiudad=$(this).parent().index();//Tomo la ubicación de la ciudad para conocer sus valores.
+        		var contenedorPrincipal=document.getElementById('extraCiudades')
+        		var cityName=ciudades[nCiudad];//Nombre de la ciudad
+        		var cityOffset=offset[nCiudad];//Offset con respecto a UTC
+        		var offsetAsArray;
+        		if (cityOffset>0){
+        			offsetAsArray='+'+cityOffset;
+        		}
+        		else{
+        			offsetAsArray=cityOffset;
+        		}
+        		var contenedor=document.createElement('div');
+        		var p=document.createElement('p');
+        		document.getElementById('extraCiudades').appendChild(contenedor);
+        		contenedor.innerHTML=cityName;
+        		$(contenedor).append('<span> ('+offsetAsArray+' UTC)</span>');
+        		$(contenedor).append(p);
+        		$(p).ready(function(){
+        			horaActual(offset[nCiudad]+4,p)
+        			});
+        		});
+
+        	});
 		</script>
 	</body>
 </html>

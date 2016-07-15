@@ -1,23 +1,29 @@
 body{
-	background:url(http://wallpapersrang.com/wp-content/uploads/2015/12/green-leaves-shamrock-wallpaper-2560x1600-260170-wallpaperup.jpg);
-	background-size:auto 600px;
-	background-repeat:no-repeat;
+	background:url(../img/colchondenovias.jpg);
+	background-size:cover;
+	background-position:top center;
 }
 section{
 	width:100vw;
 	height:100vh;
 }
-#tiempo{
-	font-size:80px;
+#tiempo,#fecha{
+	font-size:20vh;
 	font-weight:bold;
-	color:rgba(255,255,255,0.8);;
+	color:rgba(255,255,255,0.7);
 	text-align:center;
+	text-shadow:2px 2px #0C4417;
+}
+#fecha{
+	font-size:5vh;
+	color:rgba(255,255,255,0.8);
 }
 #foot{
 	position:fixed;
 	bottom:0px;
 }
 #displayOver{
+	padding:20px;
 	position:absolute;
 	background:rgba(255,255,255,0.8);;
 	visibility:hidden;
@@ -25,21 +31,47 @@ section{
 	left:0;
 	top:0;
 }
+#extraCiudades{
+	font-weight:bold;
+	width:70vw;
+	max-height:35vh;
+	overflow:auto;
+	color:black;
+	background:rgba(255,255,255,0.6);
+	margin:0 auto;
+}
+#extraCiudades p{
+	float:right;
+}
+#extraCiudades span{
+	font-weight:normal;
+}
+#extraCiudades div{
+	padding:5px;
+	width:100%;
+}
+ul{
+	padding:0;
+}
+li{
+	font-size:5vh;
+	list-style:none;
+}
+input{
+}
 button.glyphicon-globe{
-	font-size:50px!important;
-	width:70px;
-	height:70px;
+	font-size:10vh!important;
+	width:15vh;
+	height:15vh;
 	margin:0 auto!important;
 	border-radius:100%;
 	padding:5px;
 	top:80vh!important;
-
 }
 .glyphicon-remove{
 	float:right;
 	background: none!important;
-	margin:10px;
-	font-size:20px!important;
+	font-size:5vh!important;
 }
 .glyphicon {
 	display:block!important;
